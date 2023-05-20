@@ -1,5 +1,6 @@
 import boto3
 import vpc_subnets
+import internet_nat_gateway
 
 # Create the VPC
 response_vpc = vpc_subnets.create_custom_vpc('10.0.0.0/16','Name', '3Tier-VPC')
@@ -35,8 +36,25 @@ print("")
 response_priv_sub3 = vpc_subnets.create_custom_subnet("us-east-1a", "10.0.160.0/20", vpc_id, "Name", "3Tier-Priv-Sub3")
 print(response_priv_sub1)
 print("")
-print("")
 
 # Create private subnet 4
 response_priv_sub4 = vpc_subnets.create_custom_subnet("us-east-1b", "10.0.178.0/20", vpc_id, "Name", "3Tier-Priv-Sub4")
 print(response_priv_sub4)
+print("")
+
+response_create_attach_ig = internet_nat_gateway.create_attach_internet_gateway(vpc_id, "Name", "3Tier-Int-GW")
+print(response_create_attach_ig)
+print("")
+
+#Get subnet ID for NAT Gateway
+subnet_id_ng = response_pub_sub2["Subnet"]["SubnetId"]
+print(subnet_id_ng)
+print("")
+
+response_create_ng = internet_nat_gateway.create_nat_gateway(subnet_id_ng, "Name", "3Tier-Nat-GW")
+print(response_create_ng)
+print("")
+
+
+
+
