@@ -1,9 +1,6 @@
 import boto3
-import main
 
 ec2 = boto3.client('ec2')
-vpc_id = main.vpc_id
-
 
 def create_attach_internet_gateway(vpc_id, tags_key, tags_value):
     #Create a Internet Gateway
@@ -21,14 +18,16 @@ def create_attach_internet_gateway(vpc_id, tags_key, tags_value):
         ],
     )
 
-    ig_id = response_create_ig["InternetGatway"]["InternetGatewayId"]
+    ig_id = response_create_ig["InternetGateway"]["InternetGatewayId"]
 
     #Attach Internet Gateway to VPC
     response_attach_ig = ec2.attach_internet_gateway(
         InternetGatewayId= ig_id,
         VpcId=vpc_id,
     )
+    print("Attach Internet Gateway to VPC Response")
     print(response_attach_ig)
+    print("")
 
     return response_create_ig
 
