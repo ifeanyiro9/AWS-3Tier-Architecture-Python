@@ -100,6 +100,7 @@ print("")
 response_priv_sub3 = create_custom_subnet("us-east-1a", "10.0.160.0/20", vpc_id, "Name", "3Tier-Priv-Sub3")
 print(response_priv_sub1)
 print("")
+print("")
 
 # Create private subnet 4
 response_priv_sub4 = create_custom_subnet("us-east-1b", "10.0.178.0/20", vpc_id, "Name", "3Tier-Priv-Sub4")
