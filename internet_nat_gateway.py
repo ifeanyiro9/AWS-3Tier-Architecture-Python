@@ -26,8 +26,7 @@ def create_attach_internet_gateway(vpc_id, tags_key, tags_value):
         VpcId=vpc_id,
     )
     print("Attach Internet Gateway to VPC Response")
-    print(response_attach_ig)
-    print("")
+    print(response_attach_ig, "\n")
 
     return response_create_ig
 

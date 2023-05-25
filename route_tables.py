@@ -28,12 +28,10 @@ def create_pub_rt(vpc_id, dest_cidr, int_gw_id, tags_key, tags_value):
         RouteTableId=rt_id,
     )
 
-    print("Create Private Route to Natgateway Responce")
-    print(response_route)
-    print("")
+    print("Create Public Route to Internet Gateway Responce")
+    print(response_route, "\n")
 
     return response_rt
-
 
 
 
@@ -64,7 +62,16 @@ def create_priv_rt(vpc_id, dest_cidr, nat_gw_id, tags_key, tags_value):
     )
 
     print("Create Private Route to Natgateway Responce")
-    print(response_route)
-    print("")
+    print(response_route, "\n")
+
 
     return response_rt
+
+
+def assoc_rt_subnet(rt_id, subnet_id):
+    #Associate public route table with public subnets
+    response = ec2.associate_route_table(
+        RouteTableId=rt_id,
+        SubnetId=subnet_id,
+    )
+    return response
