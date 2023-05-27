@@ -166,22 +166,22 @@ priv_rt_id = response_private_rt["RouteTable"]["RouteTableId"]
 print("Get Public Route Table ID")
 print(pub_rt_id, "\n")
 
-#Associate Privtae Subnet 1 to Private Route table
+#Associate Private Subnet 1 to Private Route table
 response_ass_rt_priv_sub1 = route_tables.assoc_rt_subnet(priv_rt_id, priv_sub_1_id)
 print("Associate Private Subnet 1 to Private Route table Response")
 print(response_ass_rt_priv_sub1, "\n")
 
-#Associate Privtae Subnet 2 to Private Route table
+#Associate Private Subnet 2 to Private Route table
 response_ass_rt_priv_sub2 = route_tables.assoc_rt_subnet(priv_rt_id, priv_sub_2_id)
 print("Associate Private Subnet 2 to Private Route table Response")
 print(response_ass_rt_priv_sub2, "\n")
 
-#Associate Privtae Subnet 3 to Private Route table
+#Associate Private Subnet 3 to Private Route table
 response_ass_rt_priv_sub3 = route_tables.assoc_rt_subnet(priv_rt_id, priv_sub_3_id)
 print("Associate Private Subnet 3 to Private Route table Response")
 print(response_ass_rt_priv_sub3, "\n")
 
-#Associate Privtae Subnet 4 to Private Route table
+#Associate Private Subnet 4 to Private Route table
 response_ass_rt_priv_sub4 = route_tables.assoc_rt_subnet(priv_rt_id, priv_sub_4_id)
 print("Associate Private Subnet 4 to Private Route table Response")
 print(response_ass_rt_priv_sub4, "\n")
